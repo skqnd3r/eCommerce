@@ -1,0 +1,147 @@
+/* header */
+
+header {
+    background-color: #a3edde;
+    background-image: url(/resources/site/Banner.svg);
+
+    transform: scale(-1, -1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav.header {
+    transform: scale(-1, -1);
+}
+
+nav.header {
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+a.title_site {
+    color: #2D866E;
+    font-size: 1vw;
+}
+
+a.title_site:hover{
+    color: #2D866E;
+}
+
+#logo {
+    display: block;
+    text-align: center;
+    padding-left: 3vw;
+    width: 3vw;
+
+    justify-self: center;
+}
+
+#navigation {
+    display: flex;
+    align-items: center;
+    justify-self: flex-end;
+    gap: 3vw;
+}
+
+#logo_panier {
+    display: flex;
+}
+
+button.navigation {
+    border: none;
+    color: #2D866E;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.8vw;
+    padding: 0.6vw 1.2vw;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #3bb997d0;
+}
+
+/* body */
+
+#rad {
+    content: "";
+    align-self: center;
+    height: 300%;
+    width: 600%;
+    bottom: -115vh;
+    z-index: -1;
+    background: radial-gradient(rgb(255, 255, 255) 5%, rgba(0, 0, 0, 0) 20%);
+    position: absolute;
+}
+
+#line {
+    content: "";
+    height: 100%;
+    width: 100%;
+    z-index: -10;
+    background: linear-gradient(0deg, #a3edde 5%, rgba(255, 255, 255, 0) 30%);
+    position: absolute;
+}
+
+/* Footer */
+footer {
+    background-color: #a3edde;
+    background-image: url(/resources/site/Banner.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+img.footer_nav {
+    display: flex;
+}
+
+div.footer_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 15vw;
+    align-items: center;
+    width: 40%;
+    padding-top: 1vw;
+    position: relative;
+
+    /* height: fit-content; */
+}
+
+#copyright {
+    font-size: 1vw;
+    color: white;
+}
+
+/* banner footer */
+div.corner {
+    width: 100%;
+    height: 10vw;
+    pointer-events: none;
+}
+
+.corner {
+    position: absolute;
+    bottom: 0;
+}
+
+#left {
+    left: 0;
+}
+
+#right {
+    right: 0;
+}

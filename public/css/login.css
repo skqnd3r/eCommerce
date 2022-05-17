@@ -1,0 +1,26 @@
+/* login */
+.login {
+    width: 35vh;
+    height: 5vh;
+}
+
+
+#forget {
+    color: #383e428c;
+    font-size: 1.5vh;
+    margin-bottom: 0.8vh;
+}
+
+#forget:hover {
+    color: #66E1C8;
+}
+
+div.login_redir {
+    width: 100%;
+    justify-content: center;
+}
+
+#login_re {
+    margin-left: 2vh;
+}
+
