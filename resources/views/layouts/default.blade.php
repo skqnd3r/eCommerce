@@ -66,10 +66,13 @@
 
         <body onload="addcookie()">
         @endguest
-        <div hidden id="cookie">
-            <p class="cookie">Autorisez-vous l'utilisation des cookies ?</p>
-            <button class="button" id="cookieno" onclick="refusecookie()">Non</button>
-            <button class="button" id="cookieyes" onclick="acceptcookie()">Oui</button>
+        <div hidden class="cookie"></div>
+        <div hidden class="cookie" id="c_div">
+            <p>Autorisez-vous l'utilisation des cookies ?</p>
+            <div id="c_buttons">
+                <button class="button" id="cookieno" onclick="refusecookie()">Non</button>
+                <button class="button" id="cookieyes" onclick="acceptcookie()">Oui</button>
+            </div>
         </div>
         @yield('body')
     </body>
