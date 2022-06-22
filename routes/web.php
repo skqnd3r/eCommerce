@@ -9,7 +9,7 @@ use App\Http\Controllers\ResetController;
 use App\Http\Controllers\PassController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\ProduitController;
-use App\Http\Controllers\CartController;
+// use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,4 +72,4 @@ Route::get('/produit/{id}',[ProduitController::class, 'show'])->name('produit/{i
 Route::post('/produit/{id}',[ProductController::class, 'update'])->middleware('admin')->name('update.product/{id}');
 
 //panier
-Route::get('/panier',[CartController::class, 'show'])->middleware('auth')->name('panier');
+// Route::get('/panier',[CartController::class, 'show'])->middleware('auth')->name('panier');
