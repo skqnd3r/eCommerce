@@ -1,5 +1,11 @@
 const mix = require('laravel-mix');
 
+// npm install laravel-mix@latest
+//npm run watch
+mix.browserSync({
+    proxy: 'http://127.0.0.1:8000'
+});
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
