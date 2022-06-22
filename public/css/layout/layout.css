@@ -1,9 +1,8 @@
 /* header */
 
 header {
-    background-color: #a3edde;
+    background-color: #91fce694;
     background-image: url(/resources/site/Banner.svg);
-
     transform: scale(-1, -1);
     background-repeat: no-repeat;
     background-size: cover;
@@ -30,7 +29,7 @@ nav.header {
 
 a.title_site {
     color: #2D866E;
-    font-size: 1vw;
+    font-size: 18px;
 }
 
 a.title_site:hover{
@@ -38,12 +37,14 @@ a.title_site:hover{
 }
 
 #logo {
+    position: absolute;
+    left: 50%;
     display: block;
     text-align: center;
-    padding-left: 3vw;
     width: 3vw;
+    transform: translateX(-50%);
 
-    justify-self: center;
+    /* justify-self: center; */
 }
 
 #navigation {
@@ -62,7 +63,7 @@ button.navigation {
     color: #2D866E;
     text-align: center;
     font-weight: bold;
-    font-size: 0.8vw;
+    font-size: 18;
     padding: 0.6vw 1.2vw;
     background-color: #ffffff;
     border-radius: 5px;
@@ -77,7 +78,7 @@ button.navigation {
     height: 300%;
     width: 600%;
     bottom: -115vh;
-    z-index: -1;
+    z-index: -2;
     background: radial-gradient(rgb(255, 255, 255) 5%, rgba(0, 0, 0, 0) 20%);
     position: absolute;
 }
@@ -122,7 +123,8 @@ div.footer_nav {
 }
 
 #copyright {
-    font-size: 1vw;
+    transform: translateY(-50%);
+    font-size: 2vh;
     color: white;
 }
 

@@ -22,20 +22,27 @@ function getCookie(cname) {
 }
 
 function addcookie() {
-    if(`${getCookie("check_popup")}` != "true") {
-        cookiediv = document.getElementById("cookie");
-        cookiediv.removeAttribute("hidden", "");
+    console.log(getCookie("check_popup"))
+    if(getCookie("check_popup") != "true"){
+        let cookiediv = document.getElementsByClassName("cookie");
+        cookiediv[0].removeAttribute("hidden","");
+        cookiediv[1].removeAttribute("hidden","");
+        cookiediv[1].classList.add("container");
     }
 }
 
 function acceptcookie() {
     document.cookie = "check_popup" + "=" + "true" + ";";
-    cookiediv = document.getElementById('cookie');
-    cookiediv.setAttribute("hidden", "");
+    let cookiediv = document.getElementsByClassName("cookie");
+    cookiediv[0].setAttribute("hidden","");
+    cookiediv[1].setAttribute("hidden","");
+    cookiediv[1].classList.remove("container");
 }
 
 function refusecookie() {
     document.cookie = "check_popup" + "=" + "false" + ";";
-    cookiediv = document.getElementById('cookie');
-    cookiediv.setAttribute("hidden", "");
+    let cookiediv = document.getElementsByClassName("cookie");
+    cookiediv[0].setAttribute("hidden","");
+    cookiediv[1].setAttribute("hidden","");
+    cookiediv[1].classList.remove("container");
 }
