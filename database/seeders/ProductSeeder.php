@@ -15,8 +15,6 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $i=0;
-        // $list=array("Aqualight","Cubico","Eda","Lantana","Lechuza");
         $list=array("Lantana","Nelly","Aqualight","Orchidee","Cubico","Spathiphyllum");
         foreach($list as $item){
             DB::table('products')->insert([
