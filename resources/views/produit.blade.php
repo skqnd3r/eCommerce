@@ -6,6 +6,7 @@
 
 @section('head')
     <title>{{ $product->title }}</title>
+    <script type="text/javascript" src="/js/panier.js"></script>
     @auth @admin
         <script type="text/javascript" src="/js/admin.js"></script>
     @endadmin @endauth
@@ -14,89 +15,102 @@
 @section('body')
     <div class="window">
         <div class="container">
-            {{-- table --}}
-            <div class="image">
-                <img src="{{ $product->img }}" alt="{{ $product->alt }}" width="100px">
-            </div>
-
-            <div class="description">
-                <h1 class="description">{{ $product->title }}</h1>
-                <div class="description">
-                    <p id="desc">{{ $product->description }}</p>
+            <div class="content">
+                <div class="product">                
+                    <img class="product" src="{{ $product->img }}" alt="{{ $product->alt }}" width="100px">
+                    <ul class="product">
+                        <li>
+                            <h2>{{ $product->title }}</h2>
+                            <label for="quantity">Stock <span id="stock">{{ $product->quantity }}</span></label>
+                        </li>
+                        <li class="item">
+                            <label class="green">Description</label>
+                            <p>{{ $product->description }}</p>
+                            <p id="prix" class="green">{{ $product->price }}&euro;</p>
+                        </li>
+                        <li id="add" class="item">
+                            <div id="select" class="i_add">
+                                <a onclick="productquant(-1,{{ $product->quantity }})" id="minus" class="n_button">
+                                    <span class="minus">-</span>
+                                </a>
+                                <span id="quant" class="green">1</span>
+                                <a onclick="productquant(1,{{ $product->quantity }})" class="n_button" id="plus">
+                                    <span>+</span>
+                                </a>
+                            </div>
+                            @guest
+                                <a href="{{ route('login') }}">
+                                    <button class="i_add button">Ajouter au panier</button>
+                                </a>
+                            @endguest
+                            @auth
+                                <button class="i_add button not_allowed">Ajouter au panier</button>
+                            @endauth
+                        </li>
+                    </ul>
                 </div>
-                <label for="quantity">Quantité</label>
-                <button onclick="productquant(-1,{{ $product->quantity }})" id="minus" class="button">-</button>
-                <span id="quant">1</span>
-                <button onclick="productquant(1,{{ $product->quantity }})" class="button">+</button><br>
-                <label for="quantity">Stock</label>
-                <span id="stock">{{ $product->quantity }}</span>
-                <p id="prix">{{ $product->price }}&euro;</p>
-                @guest
-                    <a href="{{ route('login') }}">
-                        <button class="label">Ajouter au panier</button>
-                    </a>
-                @endguest
-
-                @auth
-                    <button onclick="addproductquant({{ $product->id }},{{ $product->quantity }})"
-                        class="label">Ajouter au panier</button>
-                @endauth
                 @auth @admin
-                    <button onclick="updateform()" id="updatebutton" class="label">Modifier</button>
+                    <button onclick="updateform()" id="updatebutton" class="button">Modifier</button>
                 @endadmin @endauth
             </div>
         </div>
+            
         @auth @admin
         <div hidden id="update">
-            <form class="form" id="admin" action="{{ route('update.product/{id}', [$product->id]) }}"
-                method="POST" enctype="multipart/form-data">
-                @csrf
+            <div class="content2">
+                <form class="form" id="admin" action="{{ route('update.product/{id}', [$product->id]) }}"
+                    method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <ul class="form">
+                        <li>
+                            @if ($errors->has('title'))
+                                <label class="error">Titre</label>
+                            @else
+                                <label>Titre</label>
+                            @endif
+                                <input type="text" class="text" name="title">
+                        </li>                    
+                        <li>
+                            @if ($errors->has('img'))
+                                <label class="form error" for="img">Image</label>
+                            @else
+                                <label class="form" for="img">Image</label>
+                            @endif
+                            <div class="in_file">
+                                <input type="file" class="button" id="up_img" name="img">
+                                <label for="up_img">Choose a file ...</label>
+                            </div>
+                        </li>
 
-                <div class="table">
-                    <label class="form" for="title">Titre</label>
-                    <input type="text" class="form input" name="title"><br>
-                    @if ($errors->has('title'))
-                        <p class="error">{{ $errors->first('title') }}</p>
-                    @endif
-                </div>
-                <div class="table">
-                    <label class="form" for="img">Image</label>
-                    <input type="file" class="form" id="up_img" name="img"><br>
-                    @if ($errors->has('img'))
-                        <p class="error">{{ $errors->first('img') }}</p>
-                    @endif
-                </div>
-                <div class="table">
-                    @if ($errors->has('alt'))
-                        <p class="error">{{ $errors->first('alt') }}</p>
-                    @endif
-                </div>
-                <div class="table">
-                    <label class="form" for="desc">Description</label>
-                    <textarea class="form input" name="desc" form="admin"></textarea>
-                    @if ($errors->has('desc'))
-                        <p class="error">{{ $errors->first('desc') }}</p>
-                    @endif
-                </div>
-                <div class="table">
-                    <label class="form" for="price">Prix</label>
-                    <input type="number" step="0.01" min="0" class="form input" name="price"><br>
-                    @if ($errors->has('price'))
-                        <p class="error">{{ $errors->first('price') }}</p>
-                    @endif
-                </div>
+                        <li>
+                            @if ($errors->has('desc'))
+                                <label class="form error" for="desc">Description</label>
+                            @else
+                                <label class ="form" for="desc">Description</label>
+                            @endif
+                            <textarea name="desc" form="admin"></textarea>
+                        </li>
 
-                <div class="table">
-                    <label class="form" for="type">Quantité</label>
-                    <input type="number" class="form input" name="quant"><br>
-                    @if ($errors->has('quant'))
-                        <p class="error">{{ $errors->first('quant') }}</p>
-                    @endif
-                </div>
-            </form>
+                        <li>
+                            @if ($errors->has('price'))
+                                <label class="form error" for="price">Prix</label>
+                            @else
+                                <label class="form" for="price">Prix</label>
+                            @endif
+                            <input type="text" class="text" name="price">
+                        </li>
 
-            <div class="submit">
-                <input form="admin" class="button" type="submit" value="Ajouter">
+                        <li>
+                            @if ($errors->has('quant'))
+                                <label class="form error" for="type">Quantité</label>
+                            @else
+                                <label class="form" for="type">Quantité</label>
+                            @endif
+                            <input type="text" class="text" name="quant">
+                        </li>
+                    </ul>
+                    <input class="button" type="submit" value="Ajouter">
+                </form>
             </div>
         </div>
         @endadmin @endauth

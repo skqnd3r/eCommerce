@@ -11,30 +11,23 @@
 @section('body')
     <div class="window">
         @foreach ($products as $product)
-            <a href="{{ route('produit/{id}', [$product->id]) }}">
-                <div class="container">
-                    <img class="product" src="{{ $product->img }}" alt="{{ $product->alt }}" width="100"
-                        height="100">
-                    <h3>{{ $product->title }}</h3>
-                    <ul>
-                        <li>
-                            <p>{{ $product->price }}</p>
-                        </li>
-            </a>
-            <li>
+        
+            <div class="container">
+                <a class="product" href="{{ route('produit/{id}', [$product->id]) }}">
+                    <img class="product" src="{{ $product->img }}" alt="{{ $product->alt }}" width="1000px" height="1000px">
+                </a>
+                <h3 class="product">{{ $product->title }}</h3>
+                <p class="product">{{ $product->price }}</p>
                 @auth
-                    <button onclick="shortadd({{ $product->id }},{{ $product->quantity }})" class="label">Acheter maintenant</button>
+                    <button class="button not_allowed">Ajouter au panier</button>
                 @endauth
+
                 @guest
                     <a href="{{ route('login') }}">
-                        <button class="label">Acheter maintenant</button>
+                        <button class="button">Ajouter au panier</button>
                     </a>
                 @endguest
-            </li>
-            </ul>
+            </div>
+        @endforeach
     </div>
-
-    @endforeach
-    </div>
-
 @endsection

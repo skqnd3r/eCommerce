@@ -11,20 +11,24 @@
 @section('body')
     <div class="window">
         <div class="container">
-            <h1 class="reg">{{ Session::get('user.firstname') }}<br>{{ Session::get('user.lastname') }}</h1>
-            <form class="log" method="POST" action="{{ route('pass.update') }}">
-                @csrf
-                <input type="password" name="password" class="reg" placeholder="Nouveau mot de passe"><br>
-                @if ($errors->has('password'))
-                    <p class="error">{{ $errors->first('password') }}</p>
-                @endif
-                <input type="password" name="cpassword" class="reg"
-                    placeholder="Confirmation du nouveau mot de passe"><br>
-                @if ($errors->has('cpassword'))
-                    <p class="error">{{ $errors->first('cpassword') }}</p>
-                @endif
-                <input type="submit" class="button" value="Valider"><br>
-            </form>
+            <div class="content">
+                <h2 class="reg">{{ Session::get('user.firstname') }} {{ Session::get('user.lastname') }}</h2>
+                <form id="reset" method="POST" action="{{ route('pass.update') }}">
+                    @csrf
+                    @if ($errors->has('password'))
+                        <input type="password" name="password" class="text error" placeholder="Nouveau mot de passe">
+                    @else
+                        <input type="password" name="password" class="text" placeholder="Nouveau mot de passe">
+                    @endif
+
+                    @if ($errors->has('cpassword'))
+                        <input type="password" name="cpassword" class="text error" placeholder="Confirmation du mot de passe">
+                    @else
+                        <input type="password" name="cpassword" class="text" placeholder="Confirmation du mot de passe">
+                    @endif
+                </form>
+                <input id="validate" type="submit" form="reset" class="button" value="Valider">
+            </div>
         </div>
     </div>
 @endsection

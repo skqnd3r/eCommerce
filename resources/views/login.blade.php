@@ -11,32 +11,31 @@
 @section('body')
     <div class="window">
         <div class="container">
-            <h2 class="head">Connexion</h2>
-            <form class="log" action="{{ route('login') }}" method="POST">
-                @csrf
-                <input class="login" name="email" placeholder="Email"><br>
-                @if ($errors->has('email'))
-                    <p class="error">{{ $errors->first('email') }}</p>
-                @endif
+            <div class="content">
+                <h2 class="head">Connexion</h2>
+                <form class="log" action="{{ route('login') }}" method="POST">
+                    @csrf
+                    @if ($errors->has('email'))
+                        <input class="login text error" name="email" placeholder="Email"><br>
+                    @else
+                        <input class="login text" name="email" placeholder="Email"><br>
+                    @endif
 
-                <input class="login" type="password" name="password" placeholder="Mot de passe"><br>
-                @if ($errors->has('password'))
-                    <p class="error">{{ $errors->first('password') }}</p>
-                @endif
+                    @if ($errors->has('password'))
+                        <input class="login text error" type="password" name="password" placeholder="Mot de passe"><br>
+                    @else
+                        <input class="login text" type="password" name="password" placeholder="Mot de passe"><br>
+                    @endif
 
-                @if (Session::has('message'))
-                    <p class="alert alert-info">{{ Session::get('message') }}</p>
-                @endif
-
-                <a href="{{ route('reset') }}">J'ai oublié mon mot de passe</a><br>
-
-                <div class="redir">
-                    <a href="{{ route('register') }}">
-                        <input class="button" type="button" value="Inscription">
-                    </a>
-                    <input class="button" type="submit" value="Connexion"><br>
-                </div>
-            </form>
+                    <a class="link " href="{{ route('reset') }}"><p>J'ai oublié mon mot de passe</p></a>
+                    <div class="redir">
+                        <a href="{{ route('register') }}">
+                            <input class="button" type="button" value="Inscription">
+                        </a>
+                        <input class="button" type="submit" value="Connexion">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection

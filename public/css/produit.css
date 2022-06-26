@@ -1,12 +1,157 @@
 /* produit */
+div.content{
+    width: fit-content;
+    position: relative;
+}
 
-div.produit {
-    background-color: white;
+div.product{
+    width: 100%;
     display: flex;
-    flex-direction: column;
+}
+
+img.product{
+    height: 280px;
+    width: 280px;
+    margin-right: 15px;
+}
+
+ul.product{
+    width: 400px;
+}
+
+.item{
+    margin-top: 15px;
+}
+
+ul.product>li>p{
+    text-align: start;
+}
+
+.green{
+    color: #2D866E;
+    font-weight: bold;
+}
+
+.n_button{
+    height: 20px;
+    width: 20px;
+    display: inline-flex;
     align-items: center;
-    width: 500px;
-    height: 350px;
-    border-radius: 25px;
-    box-shadow: 0px 0px 40px #66e1c88c;
+    justify-content: center;
+    /* min-height: 30px; */
+    border: 2px solid #66e1c88c;
+    border-radius: 50%;
+    background-color: #ffff;
+}
+.n_button:hover >span{
+    color: #66E1C8;
+}
+
+.n_button:hover{
+    cursor: pointer;
+}
+
+.n_button>span{
+    color: #2D866E;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.minus{
+    transform: translateY(-5%);
+}
+
+#add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 25px;
+}
+
+#quant{
+    font-size: 20px;
+}
+
+#prix{
+    font-size: 30px;
+}
+
+#select {
+    align-items: center;
+}
+
+.i_add{
+    margin-right: 20px;
+}
+
+#updatebutton{
+    position: absolute;
+    top: 0;
+    margin: 10px 20px 0 0;
+    /* bottom: 0; */
+    right: 0;
+    /* transform: translateY(250%); */
+}
+
+/* modif */
+div.content2{
+    text-align: center;
+    width: 450px;
+    margin: 10px 25px 25px;
+}
+
+h2{
+    margin-bottom: 10px;
+}
+
+textarea {
+    height: 50px;
+    min-height: 50px;
+    max-height: 150px;
+    width:265px;
+    resize: vertical;
+    border-radius:15px;
+    border: 2px solid gray;
+    padding: 15px;
+
+    /* border: 2px solid ; */
+}
+
+textarea:focus {
+    outline: none;
+    border: 2px solid #a3edde;
+}
+
+.in_file{
+    margin-top: 15px;
+    height: 100%;
+    width: 300px;
+    text-align: center;
+    display:table;
+}
+input[type="file"]{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	/* position: absolute; */
+	z-index: -1;
+}
+
+input[type="file"] + label {
+    height: 100%;
+    color: #2D866E;
+    float: left;
+    padding-left: 25px;
+}
+
+input[type="file"]:focus + label,
+input[type="file"] + label:hover {
+    cursor: pointer;
+    color: #a3edde;
+}
+
+.error{
+    color: #ff000080;
 }

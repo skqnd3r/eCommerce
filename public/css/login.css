@@ -1,26 +1,17 @@
 /* login */
-.login {
-    width: 35vh;
-    height: 5vh;
+div.content{
+    text-align: center;
+    margin: 10px 100px 25px;
 }
 
-
-#forget {
-    color: #383e428c;
-    font-size: 1.5vh;
-    margin-bottom: 0.8vh;
+div.redir {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 15px;
+    justify-content: space-between;
 }
 
-#forget:hover {
-    color: #66E1C8;
+.redir>a{
+    margin-right: 20px;
 }
-
-div.login_redir {
-    width: 100%;
-    justify-content: center;
-}
-
-#login_re {
-    margin-left: 2vh;
-}
-

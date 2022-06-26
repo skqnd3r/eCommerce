@@ -7,45 +7,74 @@ div.container {
     align-items: center;
     width: fit-content;
     height: fit-content;
-    max-width: 55%;
-    max-height: 80%;
+    margin: 50px;
     padding: 25px;
     border-radius: 25px;
-    box-shadow: 0px 0px 40px #66e1c88c;
+    box-shadow: 0px 0px 25px #2D866E50;
+    /* box-shadow: 0px 0px 20px #a5a5a530; */
 }
 
 /* title */
 h2 {
     font-size: 4vh;
-    color: #383e42;
+    color: #a3edde;
 }
 
 /* form */
-form.form {
-    display: table;
+.form>ul{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: start;
+    margin-bottom: 20px;
+    /* border: 2px solid #66e1c88c; */
 }
-label.form,
-input.form {
-    display: table-cell;
+
+.form>ul>li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px;
 }
-div.table {
-    display: table-row;
-    justify-content: center;
+
+.form>ul>li>label{
+    height: fit-content;
+    position: relative;
+    bottom: 0;
+    width: 120px;
+}
+
+.form>ul>li>p{
+    width: 95%;
+    text-align: end;
+    font-size: 13px;
+}
+
+.form>input{
+    float: right;
+    margin-top: 10px;
+    transform: translateX(-30%);
 }
 
 /* input */
-input {
+
+input.text {
+    margin-top: 15px;
     border-style: solid;
     text-align: center;
     border-radius: 70px;
     justify-content: center;
-    min-width: 30vh;
-    min-height: 4vh;
+    width: 300px;
+    height: 40px;
     caret-color: #66E1C8;
 }
 
+input.error::placeholder {
+    color: #ff000080;
+}
+
 input::placeholder {
-    font-size: 2vh;
+    font-size: 20px;
     color: #66E1C8;
 }
 
@@ -58,20 +87,27 @@ input:focus {
 .button {
     height: fit-content;
     width: fit-content;
-    min-height: 3vh;
-    min-width: 10vh;
+    min-height: 30px;
+    min-width: 35px;
     border: 2px solid #66e1c88c;
     border-radius: 70px;
     color: #2D866E;
     text-align: center;
     font-weight: bold;
-    font-size: 0.7vw;
+    font-size: 12px;
     background-color: #ffffff;
+    padding: 0 20px;
 }
+
+
 .button:hover {
     color: #66E1C8;
+    cursor: pointer;
 }
 /* error */
+.not_allowed:hover{
+    cursor: not-allowed;
+}
 
 /* link */
 a {
@@ -87,6 +123,24 @@ a:visited {
     text-decoration: none; 
 }
 
+a.link{
+    display:block;
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+}
+
+a.link>p{
+    color: #383e428c;
+    height: fit-content;
+    width: fit-content;
+    font-size: 13px;
+}
+
+a.link>p:hover{
+    color: #66E1C8;
+}
+
 /* icons */
 .logo{
     display: block;
@@ -95,3 +149,12 @@ a:visited {
     width: 3vw;
     justify-self: center;
 }
+
+p {
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* input */
+
+

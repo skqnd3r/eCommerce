@@ -1,39 +1,65 @@
-/* header */
+/* body */
+.window{
+    z-index: 3;
+}
 
-header {
-    background-color: #91fce694;
+/* header */
+.h_back {
+    background-color: #89dfcc;
     background-image: url(/resources/site/Banner.svg);
     transform: scale(-1, -1);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    height: 100%;
 }
 
-nav.header {
-    transform: scale(-1, -1);
+#h_rad {
+    z-index: 1;
+    pointer-events: none;
+    align-self: center;
+    height: 150%;
+    width: 900%;
+    top: -60vh;
+    background: radial-gradient(rgb(255, 255, 255) 5%, rgba(0, 0, 0, 0) 20%);
+    position: absolute;
 }
 
-nav.header {
-    padding-left: 4%;
-    padding-right: 4%;
+#h_line{
+    z-index: -1;
+    height: 40%;
     width: 100%;
+    background: linear-gradient(180deg, #a3edde 5%, rgba(255, 255, 255, 0) 30%);
+    position: absolute;
+}
+
+.header{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.nav{
+    z-index: 2;
+    transform: translateY(-100%);
+}
+
+div.header {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-a.title_site {
-    color: #2D866E;
-    font-size: 18px;
+h1.title_site {
+    margin-left: 50px;
+    color: #2d866e;
+    font-size: 20px;
 }
 
 a.title_site:hover{
-    color: #2D866E;
+    cursor: pointer;
 }
 
 #logo {
@@ -41,13 +67,12 @@ a.title_site:hover{
     left: 50%;
     display: block;
     text-align: center;
-    width: 3vw;
+    width: 50px;
     transform: translateX(-50%);
-
-    /* justify-self: center; */
 }
 
 #navigation {
+    margin-right: 50px;
     display: flex;
     align-items: center;
     justify-self: flex-end;
@@ -64,37 +89,41 @@ button.navigation {
     text-align: center;
     font-weight: bold;
     font-size: 18;
-    padding: 0.6vw 1.2vw;
+    min-width: 100px;
+    padding: 10px 10px;
     background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0px 0px 10px #3bb997d0;
 }
 
-/* body */
+button.navigation:hover {
+    color: #66E1C8;
+    cursor: pointer;
+}
 
-#rad {
-    content: "";
+/* body */
+#f_rad {
+    z-index: 1;
     align-self: center;
     height: 300%;
     width: 600%;
     bottom: -115vh;
-    z-index: -2;
     background: radial-gradient(rgb(255, 255, 255) 5%, rgba(0, 0, 0, 0) 20%);
     position: absolute;
 }
 
-#line {
-    content: "";
+#f_line {
+    z-index: -1;
     height: 100%;
     width: 100%;
-    z-index: -10;
     background: linear-gradient(0deg, #a3edde 5%, rgba(255, 255, 255, 0) 30%);
     position: absolute;
+    mask-image: url(#logo_facebook.svg);
 }
 
 /* Footer */
 footer {
-    background-color: #a3edde;
+    background-color: #89dfcc;
     background-image: url(/resources/site/Banner.svg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -105,8 +134,12 @@ footer {
     flex-wrap: wrap;
 }
 
+.footer_nav{
+    z-index: 2;
+}
+
 img.footer_nav {
-    display: flex;
+    display: inline-block;
 }
 
 div.footer_nav {
@@ -116,10 +149,7 @@ div.footer_nav {
     gap: 15vw;
     align-items: center;
     width: 40%;
-    padding-top: 1vw;
-    position: relative;
-
-    /* height: fit-content; */
+    padding-top: 25px;
 }
 
 #copyright {
@@ -130,6 +160,7 @@ div.footer_nav {
 
 /* banner footer */
 div.corner {
+    z-index: 4;
     width: 100%;
     height: 10vw;
     pointer-events: none;
@@ -146,4 +177,37 @@ div.corner {
 
 #right {
     right: 0;
+}
+
+/* COOKIE */
+#c_div {
+    z-index: 6;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+}
+
+.cookie>p{
+    margin: 10px 0;
+    text-align: center;
+}
+
+.cookie>#c_buttons>button{
+    margin: 5px 15px;
+}
+
+div.cookie{
+    z-index: 5;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.356);
+}
+
+button.disconnect:hover span{
+    display: none;
+}
+  
+button.disconnect:hover:before {
+    content: "Deconnexion";
 }
