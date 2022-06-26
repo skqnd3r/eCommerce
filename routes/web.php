@@ -21,13 +21,10 @@ use App\Http\Controllers\ProduitController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return redirect('catalogue');
 });
-
-// Route::get('/admin', function () {
-//     return view('admin');
-// })->name('admin');
 
 Route::get('/catalogue', function () {
     return view('catalogue');
@@ -47,7 +44,6 @@ Route::get('/catalogue', [CatalogueController::class, 'show'])->name('catalogue'
 
 // route register
 Route::post('/register', [UserController::class, 'create'])->middleware('guest')->name('user.create');
-// Route::resource('product', ProductController::class);
 
 // route login
 Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
@@ -70,6 +66,3 @@ Route::post('/admin', [ProductController::class, 'create'])->middleware('admin')
 // produit 
 Route::get('/produit/{id}',[ProduitController::class, 'show'])->name('produit/{id}');
 Route::post('/produit/{id}',[ProductController::class, 'update'])->middleware('admin')->name('update.product/{id}');
-
-//panier
-// Route::get('/panier',[CartController::class, 'show'])->middleware('auth')->name('panier');

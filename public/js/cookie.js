@@ -22,7 +22,6 @@ function getCookie(cname) {
 }
 
 function addcookie() {
-    console.log(getCookie("check_popup"))
     if(getCookie("check_popup") != "true"){
         let cookiediv = document.getElementsByClassName("cookie");
         cookiediv[0].removeAttribute("hidden","");

@@ -1,6 +1,6 @@
 var switcher = 0;
 
-function updateform() {
+function updateform(){
     var container = document.getElementById('update');
     var button = document.getElementById('updatebutton');
 
