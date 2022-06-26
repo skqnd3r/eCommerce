@@ -18,9 +18,15 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
-        $alt = $request->file('img')->getClientOriginalName();
-        $request->merge(['alt' => $alt]);
+        $validator = Validator::make($request->all(),[
+            'img' => 'required'
+        ]);
 
+        if ($validator->validated()) {
+            $alt = $request->file('img')->getClientOriginalName();
+            $request->merge(['alt' => $alt]);
+        }
+        
         $validator = Validator::make($request->all(), [
             'title' => 'required|unique:products,title',
             'desc' => 'required',
@@ -29,10 +35,10 @@ class ProductController extends Controller
             'alt' => 'unique:products,alt',
             'img' => 'required',
         ]);
+        
         if ($validator->fails()) {
             return redirect('admin')->withErrors($validator)->withInput();
         } else {
-
             $request->file('img')->storeas('public/products/', $request->alt);
             $path = asset('storage/products/' . $request->alt);
 
@@ -89,7 +95,7 @@ class ProductController extends Controller
                 Product::where('id', $id)->update(['price' => $request->price]);
             }
 
-            return redirect('catalogue');
+            return redirect()->back();
         }
     }
 }
